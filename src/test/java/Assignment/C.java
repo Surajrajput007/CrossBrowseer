@@ -17,34 +17,34 @@ public class C {
 	@Parameters({ "browserName" })
 	public void setup(String browserName) throws IOException, InterruptedException {
 
-		DesiredCapabilities capabilities = new DesiredCapabilities();
+		DesiredCapabilities option = new DesiredCapabilities();
 
 		// capabilities.setPlatform(Platform.WIN11);
 		// capabilities.setBrowserName("chrome");
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
-			driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444"), option);
 			System.out.println("Connection Established in Chrome Browser");
 		}
 
 		if (browserName.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
-			driver = new RemoteWebDriver(new URL("http://loca		driver = new RemoteWebDriver(new URL(\"http://localhost:4444/wd/hub\"),capabilities);lhost:4444"), options);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444"), option);
 			System.out.println("Connection Established in Firefox Browser");
 		}
 
 		if (browserName.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
-			driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444"), option);
 			System.out.println("Connection Established in Edge Browser");
 
-			driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444"), option);
 		}
 		
 		Thread.sleep(3000);
 		driver.get("https://www.amazon.in/");
-		System.out.println(driver.getTitle());
+		System.out.println("Application Executing Parallely");
 		;
 	}
 }
